@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Packages\IntranetAppFormwerk\Http\Controllers\WebhookAttachmentController;
+use Hwkdo\IntranetAppFormwerk\Http\Controllers\WebhookAttachmentController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
