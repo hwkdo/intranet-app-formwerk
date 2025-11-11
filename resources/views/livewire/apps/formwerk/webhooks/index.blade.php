@@ -38,6 +38,7 @@ title('Formwerk - Webhooks');
                 <flux:table.column>Typ</flux:table.column>
                 <flux:table.column>Identifier</flux:table.column>
                 <flux:table.column>Webhook ID</flux:table.column>
+                <flux:table.column>Formwerk UUID</flux:table.column>
                 <flux:table.column>Erstellt am</flux:table.column>
                 <flux:table.column>Aktionen</flux:table.column>
             </flux:table.columns>
@@ -52,6 +53,9 @@ title('Formwerk - Webhooks');
                         </flux:table.cell>
                         <flux:table.cell>
                             <span class="text-xs text-zinc-500">{{ $webhook->webhook_call_id ?? '-' }}</span>
+                        </flux:table.cell>
+                        <flux:table.cell>
+                            <span class="text-xs text-zinc-500">{{ $webhook->formwerk_uuid ?? '-' }}</span>
                         </flux:table.cell>
                         <flux:table.cell>
                             {{ $webhook->created_at?->format('d.m.Y H:i') ?? '-' }}

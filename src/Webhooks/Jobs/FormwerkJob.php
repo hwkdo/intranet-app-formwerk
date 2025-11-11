@@ -37,7 +37,13 @@ class FormwerkJob extends SpatieProcessWebhookJob
         foreach(Typ::all() as $typ) {
             if(Hash::check($typ->token,$this->webhookCall->headers[$config['signature_header_name']][0])) {                                
                 $identifier = collect($this->webhookCall->payload)->firstWhere('name', $typ->identifier)["value"];
-                $typ->webhooks()->attach($this->webhookCall, ['identifier' => $identifier]);
+                $uuid = collect($this->webhookCall->payload)->firstWhere('name', 'formwerk_uuid')["value"];
+                if($uuid) {
+                    $typ->webhooks()->attach($this->webhookCall, ['identifier' => $identifier, 'formwerk_uuid' => $uuid]);
+                } else {
+                    Log::info('FormwerkJob', ['Formwerk UUID not found for Typ: ' . $typ->name]);
+                    $typ->webhooks()->attach($this->webhookCall, ['identifier' => $identifier]);
+                }
                 Log::info('FormwerkJob', ['Typ found: ' . $typ->name . ' with identifier: ' . $identifier]);
             } 
         }
