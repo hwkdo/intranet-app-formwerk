@@ -76,8 +76,7 @@ class ProcessHwrEintragBetriebsleiterGF implements ShouldQueue
                     
                     // Datei-Content holen und speichern
                     $content = MailService::getAttachmentContent($attachment);
-                    $dokument->addMediaFromString($content)
-                        ->usingFileName($filename)
+                    $dokument->addMediaFromStringWithPdfConversion($content, $filename)
                         ->toMediaCollection('default');
                     
                     Log::info("E-Mail-Anhang als Dokument gespeichert: ID={$dokument->id}, Datei={$filename}");

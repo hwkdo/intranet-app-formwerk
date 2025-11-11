@@ -77,8 +77,7 @@ class ProcessHwrEintragungSelfService implements ShouldQueue
                     
                     // Datei-Content holen und speichern
                     $content = MailService::getAttachmentContent($attachment);
-                    $dokument->addMediaFromString($content)
-                        ->usingFileName($filename)
+                    $dokument->addMediaFromStringWithPdfConversion($content, $filename)
                         ->toMediaCollection('default');
                     
                     Log::info("E-Mail-Anhang als Dokument gespeichert: ID={$dokument->id}, Datei={$filename}");
@@ -113,8 +112,7 @@ class ProcessHwrEintragungSelfService implements ShouldQueue
                 ]);
                 
                 // Datei-Content direkt an MediaLibrary übergeben
-                $dokument->addMediaFromString($response->body())
-                    ->usingFileName($filename)
+                $dokument->addMediaFromStringWithPdfConversion($response->body(), $filename)
                     ->toMediaCollection('default');
                 
                 Log::info("Download-Link als Dokument gespeichert: ID={$dokument->id}, Datei={$filename}");
