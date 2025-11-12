@@ -15,6 +15,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Hwkdo\HwkAdminLaravel\HwkAdminService;
 
 class ProcessHwrEintragungSelfService implements ShouldQueue
 {
@@ -120,6 +121,8 @@ class ProcessHwrEintragungSelfService implements ShouldQueue
                 Log::error("Fehler beim Herunterladen von {$downloadLink['url']}: HTTP {$response->status()}");
             }
         }
+
+        app(HwkAdminService::class)->getGewanXml($this->identifier);
 
         Log::info('ProcessHwrEintragungSelfService abgeschlossen', [
             'subject' => $mail->getSubject(),
