@@ -1,6 +1,7 @@
 <?php
 
 use Hwkdo\IntranetAppFormwerk\Models\TypHasWebhook;
+use Hwkdo\MsGraphLaravel\Jobs\ProcessFormwerkMail;
 use function Livewire\Volt\{state, title, usesPagination, computed};
 
 usesPagination();
@@ -19,6 +20,16 @@ $webhooks = computed(function () {
         ->orderBy('created_at', 'desc')
         ->paginate(15);
 });
+
+$reprocessMail = function (TypHasWebhook $webhook) {
+    if (! $webhook->ms_graph_mail_resource) {
+        return;
+    }
+
+    ProcessFormwerkMail::dispatch([
+        'resource' => $webhook->ms_graph_mail_resource,
+    ]);
+};
 
 title('Formwerk - Webhooks');
 
@@ -76,6 +87,16 @@ title('Formwerk - Webhooks');
                                         :href="route('apps.formwerk.webhooks.show-mail', $webhook->id)" 
                                         size="xs" 
                                         icon="envelope"
+                                        variant="ghost"
+                                    >
+                                        E-Mail
+                                    </flux:button>
+                                    <flux:button 
+                                        wire:confirm="E-Mail erneut verarbeiten?"
+                                        wire:click="reprocessMail({{ $webhook->id }})"
+                                        wire:loading.attr="disabled"
+                                        size="xs" 
+                                        icon="arrow-path"
                                         variant="ghost"
                                     >
                                         E-Mail
