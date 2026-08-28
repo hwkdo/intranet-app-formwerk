@@ -9,9 +9,7 @@
         ['label' => 'Übersicht', 'href' => route('apps.formwerk.index'), 'icon' => 'home', 'description' => 'Zurück zur Übersicht', 'buttonText' => 'Übersicht anzeigen'],
         ['label' => 'Beispielseite', 'href' => route('apps.formwerk.example'), 'icon' => 'document-text', 'description' => 'Beispielseite anzeigen', 'buttonText' => 'Beispielseite öffnen'],
         ['label' => 'Typen', 'href' => route('apps.formwerk.typen.index'), 'icon' => 'document-duplicate', 'description' => 'Formwerk-Typen verwalten', 'buttonText' => 'Typen öffnen'],
-        ['label' => 'Webhooks', 'href' => route('apps.formwerk.webhooks.index'), 'icon' => 'bell', 'description' => 'Webhook-Übersicht anzeigen', 'buttonText' => 'Webhooks öffnen'],
-        ['label' => 'Meine Einstellungen', 'href' => route('apps.formwerk.settings.user'), 'icon' => 'cog-6-tooth', 'description' => 'Persönliche Einstellungen anpassen', 'buttonText' => 'Einstellungen öffnen'],
-        ['label' => 'App-Info', 'href' => route('apps.formwerk.info'), 'icon' => 'information-circle', 'description' => 'Installierte Version und Release-Historie', 'buttonText' => 'App-Info anzeigen'],
+        ['label' => 'Webhooks', 'href' => route('apps.formwerk.webhooks.index'), 'icon' => 'bell', 'description' => 'Webhook-Übersicht anzeigen', 'buttonText' => 'Webhooks öffnen'],        ['label' => 'App-Info', 'href' => route('apps.formwerk.info'), 'icon' => 'information-circle', 'description' => 'Installierte Version und Release-Historie', 'buttonText' => 'App-Info anzeigen'],
         ['label' => 'Admin', 'href' => route('apps.formwerk.admin.index'), 'icon' => 'shield-check', 'description' => 'Administrationsbereich verwalten', 'buttonText' => 'Admin öffnen', 'permission' => 'manage-app-formwerk']
     ];
     
