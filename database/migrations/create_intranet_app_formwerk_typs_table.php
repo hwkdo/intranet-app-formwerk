@@ -136,12 +136,12 @@ return new class extends Migration
             'identifier' => 'username',
             'identifier_xml_field' => 'StandardWert',
             'subject' => '##onboarding##',
-            'jobClass' => '\Hwkdo\MsGraphLaravel\Jobs\ProcessFormwerkMaOnboarding',
-            'filepath' => storage_path('app/non-public/files/formwerk/'),
+            'jobClass' => '\Hwkdo\IntranetAppFormwerk\Jobs\ProcessMaOnboarding',
+            'filepath' => storage_path('app/non-public/files/formwerk/onboarding/'),
             'token' => $token,
             'config' => [
                 'send_success_mail' => true,
-                'mail_empfaenger' => 'formwerk_onboarding@hwk-do.de'                
+                'mail_empfaenger' => 'formwerk_onboarding@hwk-do.de'
             ],
         ]);
     }

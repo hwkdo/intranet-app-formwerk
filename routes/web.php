@@ -1,12 +1,21 @@
 <?php
 
+use Hwkdo\IntranetAppFormwerk\Http\Controllers\OnboardingRedirectController;
 use Hwkdo\IntranetAppFormwerk\Http\Controllers\WebhookAttachmentController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-
 Route::webhooks('kunden/webhooks/formwerk', 'formwerk');
 
+/*
+| Onboarding-Redirect (JWT → Formwerk-Formular).
+| Auth reicht: Link kommt per Mail an den MA; keine see-app-formwerk-Pflicht.
+*/
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::get('apps/formwerk/onboarding/{user}', OnboardingRedirectController::class)
+        ->whereNumber('user')
+        ->name('apps.formwerk.onboarding');
+});
 
 Route::middleware(['web','auth','can:see-app-formwerk'])->group(function () {        
     Volt::route('apps/formwerk', 'apps.formwerk.index')->name('apps.formwerk.index');

@@ -22,8 +22,7 @@ class Typ extends Model
     public function webhooks(): BelongsToMany
     {
         return $this->belongsToMany(WebhookCall::class, 'intranet_app_formwerk_typ_webhooks')
-            ->withPivot('identifier')
-            ->withPivot('ms_graph_mail_resource')
+            ->withPivot(['identifier', 'ms_graph_mail_resource', 'formwerk_uuid'])
             ->withTimestamps();
     }
 }
