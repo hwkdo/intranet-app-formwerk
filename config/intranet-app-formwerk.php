@@ -41,4 +41,17 @@ return [
     | PDF-Mailbox: intranet-app-formwerk@hwk-do.de (Graph-Subscription formwerk)
     */
     'onboarding_form_url' => env('FORMWERK_ONBOARDING_FORM_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Legacy Betrieb-API-Key (Formwerk Datenabruf)
+    |--------------------------------------------------------------------------
+    | Seed-Default für den Datenabruf-Typ "betrieb". Entspricht dem bisherigen
+    | Shared Secret aus Legacy (intranet.evolnet.ds_user_webhook_call_token).
+    */
+    'legacy_betrieb_api_key' => env(
+        'FORMWERK_LEGACY_BETRIEB_API_KEY',
+        '3GDLAZLtT0LV5Cfopa5FCTkAaK9AJepSU7o6JoAPhSErmd9m2gdNUKRo6yZb',
+    ),
 ];
+

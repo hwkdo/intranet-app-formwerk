@@ -27,6 +27,9 @@ Route::middleware(['web','auth','can:see-app-formwerk'])->group(function () {
     Volt::route('apps/formwerk/typen', 'apps.formwerk.typen.index')->name('apps.formwerk.typen.index');
 
     Volt::route('apps/formwerk/typen/{typ}/edit', 'apps.formwerk.typen.edit')->name('apps.formwerk.typen.edit');
+
+    Route::livewire('apps/formwerk/datenabrufe', 'intranet-app-formwerk::apps.formwerk.datenabrufe')
+        ->name('apps.formwerk.datenabrufe');
     
     // Webhooks-Übersicht
     Volt::route('apps/formwerk/webhooks', 'apps.formwerk.webhooks.index')->name('apps.formwerk.webhooks.index');

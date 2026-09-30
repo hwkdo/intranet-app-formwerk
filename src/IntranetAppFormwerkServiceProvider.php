@@ -4,7 +4,7 @@ namespace Hwkdo\IntranetAppFormwerk;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Hwkdo\IntranetAppFormwerk\Commands\IntranetAppFormwerkCommand;
+use Livewire\Livewire;
 use Livewire\Volt\Volt;
 
 class IntranetAppFormwerkServiceProvider extends PackageServiceProvider
@@ -26,11 +26,13 @@ class IntranetAppFormwerkServiceProvider extends PackageServiceProvider
     public function boot(): void
     {
         parent::boot();
-        // Gate::policy(Raum::class, RaumPolicy::class);
-        $this->app->booted( function() {
-            Volt::mount(__DIR__.'/../resources/views/livewire');                        
-        });
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
+        $this->app->booted(function () {
+            Volt::mount(__DIR__.'/../resources/views/livewire');
+            Livewire::addNamespace('intranet-app-formwerk', __DIR__.'/../resources/views/livewire');
+        });
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
     }
 }

@@ -22,10 +22,13 @@
         "illuminate/database": "^12.0||^13.0",
         "illuminate/support": "^12.0||^13.0",
         "hwkdo/intranet-app-base": "dev-main || ^1.0",
+        "hwkdo/bue-laravel": "dev-main || ^0",
         "spatie/laravel-permission": "^8.0",
         "spatie/laravel-webhook-client": "^3.4",
-        "livewire/volt": "^1.6.7"
+        "livewire/volt": "^1.6.7",
+        "livewire/livewire": "^4.0"
     },
+
     "require-dev": {
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
@@ -36,7 +39,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Hwkdo\\IntranetAppFormwerk\\": "src/"
+            "Hwkdo\\IntranetAppFormwerk\\": "src/",
+            "Hwkdo\\IntranetAppFormwerk\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
