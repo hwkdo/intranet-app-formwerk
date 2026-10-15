@@ -76,7 +76,7 @@ mount(function ($id) {
 title(fn () => $this->mailSubject);
 
 ?>
-
+<div>
 <x-intranet-app-formwerk::formwerk-layout 
     :heading="$this->mailSubject" 
     subheading="E-Mail Details"
@@ -162,3 +162,4 @@ title(fn () => $this->mailSubject);
     </div>
 </x-intranet-app-formwerk::formwerk-layout>
 
+</div>

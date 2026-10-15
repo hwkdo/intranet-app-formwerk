@@ -72,7 +72,7 @@ $save = function() {
 title('Neuer Typ');
 
 ?>
-
+<div>
 <x-intranet-app-formwerk::formwerk-layout 
     heading="Neuer Typ" 
     subheading="Erstellen Sie einen neuen Formwerk-Typ"
@@ -177,3 +177,4 @@ title('Neuer Typ');
     </form>
 </x-intranet-app-formwerk::formwerk-layout>
 
+</div>

@@ -17,12 +17,12 @@ Route::middleware(['web', 'auth'])->group(function () {
         ->name('apps.formwerk.onboarding');
 });
 
-Route::middleware(['web','auth','can:see-app-formwerk'])->group(function () {        
+Route::middleware(['web', 'auth', 'can:see-app-formwerk'])->group(function () {
     Volt::route('apps/formwerk', 'apps.formwerk.index')->name('apps.formwerk.index');
 
     Volt::route('apps/formwerk/example', 'apps.formwerk.example')->name('apps.formwerk.example');
     Volt::route('apps/formwerk/info', 'apps.formwerk.info')->name('apps.formwerk.info');
-    
+
     // Typen-Verwaltung
     Volt::route('apps/formwerk/typen', 'apps.formwerk.typen.index')->name('apps.formwerk.typen.index');
 
@@ -30,7 +30,7 @@ Route::middleware(['web','auth','can:see-app-formwerk'])->group(function () {
 
     Route::livewire('apps/formwerk/datenabrufe', 'intranet-app-formwerk::apps.formwerk.datenabrufe')
         ->name('apps.formwerk.datenabrufe');
-    
+
     // Webhooks-Übersicht
     Volt::route('apps/formwerk/webhooks', 'apps.formwerk.webhooks.index')->name('apps.formwerk.webhooks.index');
 
@@ -42,16 +42,9 @@ Route::middleware(['web','auth','can:see-app-formwerk'])->group(function () {
         ->name('apps.formwerk.webhooks.attachments.download');
 });
 
-
-Route::middleware(['web','auth','can:manage-app-formwerk'])->group(function () {
+Route::middleware(['web', 'auth', 'can:manage-app-formwerk'])->group(function () {
     Volt::route('apps/formwerk/admin', 'apps.formwerk.admin.index')->name('apps.formwerk.admin.index');
-    
+
     // Typen erstellen (nur für Admins)
     Volt::route('apps/formwerk/typen/create', 'apps.formwerk.typen.create')->name('apps.formwerk.typen.create');
 });
-
-Route::middleware(['web', 'auth', 'can:manage-app-formwerk'])->group(function (): void {
-    Volt::route('apps/formwerk/admin/background-activities', 'apps.formwerk.admin.background-activities')
-        ->name('apps.formwerk.admin.background-activities');
-});
-

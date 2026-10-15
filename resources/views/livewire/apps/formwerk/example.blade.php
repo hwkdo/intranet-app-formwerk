@@ -12,7 +12,7 @@ state(['exampleData' => [
 ]]);
 
 ?>
-
+<div>
 <x-intranet-app-formwerk::formwerk-layout heading="Beispiel-Seite" subheading="Demonstration der Formwerk-Funktionalität">
     <flux:card class="glass-card">
         <flux:heading size="lg" class="mb-4">Beispiel-Content</flux:heading>
@@ -43,3 +43,4 @@ state(['exampleData' => [
         </div>
     </flux:card>
 </x-intranet-app-formwerk::formwerk-layout>
+</div>

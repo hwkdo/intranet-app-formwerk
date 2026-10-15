@@ -94,7 +94,7 @@ $save = function() {
 title(fn () => $this->typ ? 'Typ bearbeiten' : 'Neuer Typ');
 
 ?>
-
+<div>
 <x-intranet-app-formwerk::formwerk-layout 
     :heading="$this->typ ? 'Typ bearbeiten' : 'Neuer Typ'" 
     :subheading="$this->typ ? 'Bearbeiten Sie die Typ-Eigenschaften' : 'Erstellen Sie einen neuen Formwerk-Typ'"
@@ -199,3 +199,4 @@ title(fn () => $this->typ ? 'Typ bearbeiten' : 'Neuer Typ');
     </form>
 </x-intranet-app-formwerk::formwerk-layout>
 
+</div>

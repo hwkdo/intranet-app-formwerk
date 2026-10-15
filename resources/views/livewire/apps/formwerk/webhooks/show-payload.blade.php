@@ -31,7 +31,7 @@ mount(function ($id) {
 title(fn () => $this->payloadHeading);
 
 ?>
-
+<div>
 <x-intranet-app-formwerk::formwerk-layout 
     :heading="$this->payloadHeading" 
     subheading="Webhook Details und Payload"
@@ -92,3 +92,4 @@ title(fn () => $this->payloadHeading);
     @endif
 </x-intranet-app-formwerk::formwerk-layout>
 
+</div>
