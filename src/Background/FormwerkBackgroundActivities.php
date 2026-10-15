@@ -12,6 +12,7 @@ use Hwkdo\IntranetAppFormwerk\Jobs\ProcessHwrEintragBetriebsleiterGF;
 use Hwkdo\IntranetAppFormwerk\Jobs\ProcessHwrEintragungSelfService;
 use Hwkdo\IntranetAppFormwerk\Jobs\ProcessMaOnboarding;
 use Hwkdo\IntranetAppFormwerk\Mail\MitarbeiterOnboardingDone;
+use Hwkdo\IntranetAppFormwerk\Webhooks\Jobs\FormwerkJob;
 
 final class FormwerkBackgroundActivities
 {
@@ -29,6 +30,7 @@ final class FormwerkBackgroundActivities
             BackgroundActivityDefinition::queued(key: 'formwerk.hwr-self-service', label: 'HWR Self-Service', appIdentifier: $id, appName: $name, job: ProcessHwrEintragungSelfService::class, sort: 30),
             BackgroundActivityDefinition::queued(key: 'formwerk.asset-rueckgabe', label: 'Asset-Rückgabe', appIdentifier: $id, appName: $name, job: ProcessAssetRueckgabe::class, sort: 40),
             BackgroundActivityDefinition::queued(key: 'formwerk.ma-onboarding', label: 'MA-Onboarding', appIdentifier: $id, appName: $name, job: ProcessMaOnboarding::class, sort: 50),
+            BackgroundActivityDefinition::queued(key: 'formwerk.webhook', label: 'Webhook: Formwerk', appIdentifier: $id, appName: $name, job: FormwerkJob::class, description: 'Verarbeitet eingehende Formwerk-Webhooks.', sort: 55),
             BackgroundActivityDefinition::mail(key: 'formwerk.mail-onboarding-done', label: 'Mail: Onboarding abgeschlossen', appIdentifier: $id, appName: $name, mailable: MitarbeiterOnboardingDone::class, sort: 60),
         ];
     }
