@@ -49,3 +49,9 @@ Route::middleware(['web','auth','can:manage-app-formwerk'])->group(function () {
     // Typen erstellen (nur für Admins)
     Volt::route('apps/formwerk/typen/create', 'apps.formwerk.typen.create')->name('apps.formwerk.typen.create');
 });
+
+Route::middleware(['web', 'auth', 'can:manage-app-formwerk'])->group(function (): void {
+    Volt::route('apps/formwerk/admin/background-activities', 'apps.formwerk.admin.background-activities')
+        ->name('apps.formwerk.admin.background-activities');
+});
+

@@ -1,10 +1,12 @@
 <?php
 
 namespace Hwkdo\IntranetAppFormwerk;
+use Hwkdo\IntranetAppBase\Interfaces\ProvidesBackgroundActivitiesInterface;
+use Hwkdo\IntranetAppFormwerk\Background\FormwerkBackgroundActivities;
 use Hwkdo\IntranetAppBase\Interfaces\IntranetAppInterface;
 use Illuminate\Support\Collection;
 
-class IntranetAppFormwerk implements IntranetAppInterface 
+class IntranetAppFormwerk implements IntranetAppInterface, ProvidesBackgroundActivitiesInterface 
 {
     public static function app_name(): string
     {
@@ -45,4 +47,11 @@ class IntranetAppFormwerk implements IntranetAppInterface
     {
         return [];
     }
+
+    public static function backgroundActivities(): array
+    {
+        return FormwerkBackgroundActivities::definitions();
+    }
+
+
 }

@@ -11,6 +11,7 @@
         ['label' => 'Webhook-Typen', 'href' => route('apps.formwerk.typen.index'), 'icon' => 'document-duplicate', 'description' => 'Formwerk-Typen verwalten', 'buttonText' => 'Typen öffnen'],
         ['label' => 'Datenabrufe', 'href' => route('apps.formwerk.datenabrufe'), 'icon' => 'cloud-arrow-down', 'description' => 'Externe Datenabrufe verwalten', 'buttonText' => 'Datenabrufe öffnen'],
         ['label' => 'Webhooks', 'href' => route('apps.formwerk.webhooks.index'), 'icon' => 'bell', 'description' => 'Webhook-Übersicht anzeigen', 'buttonText' => 'Webhooks öffnen'],        ['label' => 'App-Info', 'href' => route('apps.formwerk.info'), 'icon' => 'information-circle', 'description' => 'Installierte Version und Release-Historie', 'buttonText' => 'App-Info anzeigen'],
+        ['label' => 'Hintergrund', 'href' => route('apps.formwerk.admin.background-activities'), 'icon' => 'clock', 'description' => 'Geplante Tasks, Jobs und Versand', 'buttonText' => 'Hintergrund öffnen', 'permission' => 'manage-app-formwerk'],
         ['label' => 'Admin', 'href' => route('apps.formwerk.admin.index'), 'icon' => 'shield-check', 'description' => 'Administrationsbereich verwalten', 'buttonText' => 'Admin öffnen', 'permission' => 'manage-app-formwerk']
     ];
     

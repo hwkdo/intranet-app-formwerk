@@ -2,10 +2,10 @@
 
 namespace Hwkdo\IntranetAppFormwerk;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Livewire\Livewire;
 use Livewire\Volt\Volt;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class IntranetAppFormwerkServiceProvider extends PackageServiceProvider
 {
